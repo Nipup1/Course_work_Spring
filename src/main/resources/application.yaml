@@ -1,0 +1,16 @@
+jwt:
+  lifetime: 7d
+  secret: dakdjjaiwg92h12uhqdkjadwkuhq
+spring:
+  application:
+    name: Course_work
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:65050/optics_store
+    username: user_store
+    password: qwertybn
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

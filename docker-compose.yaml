@@ -1,0 +1,28 @@
+version: '3.1'
+volumes:
+  pg_film_heroes:
+
+services:
+  mysql:
+    container_name: 'mysql-image'
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234567
+      - MYSQL_DATABASE=optics_store
+      - MYSQL_USER=user_store
+      - MYSQL_PASSWORD=qwertybn
+    ports:
+      - "65050:3306"
+
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    ports:
+      - "8808:8080"
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql:3306/optics_store'
+
